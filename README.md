@@ -5,9 +5,9 @@
 
 1. **已有研究**
 	当研究与计算拉格朗日点时，即为当两个质量大的天体相互作用下，在旋转参考系这一非惯性参考系下，假设有一天体绕另一天体公转，必会产生有离心力，此时处于地日L4与L5点就是分别受到两主要天体万有引力与离心力平衡的点，即太阳引力：
-$$
+\[
 \mathord{ \buildrel{ \lower3pt \hbox{$ \scriptscriptstyle \rightharpoonup$}} \over F}{\scriptsize sun}  = G{{M{\scriptsize sun} m} \over {{r{\scriptsize tosun}  ^2}}} 
-$$
+\]
 	地球引力
 $$
 	\mathord{ \buildrel{ \lower3pt \hbox{$ \scriptscriptstyle \rightharpoonup$}} \over F}{\scriptsize earth}  = G{{M{\scriptsize earth} m} \over {{r{\scriptsize toearth}  ^2}}} 
@@ -188,7 +188,7 @@ $$
 			};
 		```
 		通过两部分代码的相互调用，我们已经可以实现了模拟（附图-地日月系统-python+坐标绘图）
-		![[天体模拟LP262-1774758428441.webp|1024]]
+		![[天体模拟LP262-1774758428441.webp|645]]
 		但是，为了更高的精度，继续采用高阶幸积分，这里为四阶幸积分法
 		```cpp
 			void physics_worker_pooled(int thread_id, int num_threads, int n, barrier<>& sync) {
@@ -216,7 +216,8 @@ $$
 			}
 		```
 		此刻轨道模拟已经一定程度上的精准，在增加实时监听代码后（见后一部分），可以进行模拟。
-
+		
+	- **补充-相对论修正**
 		基本原理
 $$
 \vec{a}
@@ -249,7 +250,8 @@ $$
 		
 	- **最终推演，验证理论（带入之前坐标）**
 		这时我们可以增添更多的天体（太阳系八大行星&哈雷彗星），可见L4，L5点小质量行星轨道并不受影响，始终先于/后于地球60°（附图）
-
+		![[天体模拟LP262-1774886221762.webp|645]]
+		![[天体模拟LP262-1774886308451.webp]]
 4. **结果**
 	由上文可知，地日拉格朗日点L4、L5点的确具有一定的稳定性。
 
